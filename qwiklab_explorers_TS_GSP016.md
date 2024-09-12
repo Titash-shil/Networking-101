@@ -1,30 +1,40 @@
+# [Develop an App with Vertex AI Gemini 1.0 Pro](https://www.cloudskillsboost.google/games/5463/labs/35367)
 
-export REGION1="${ZONE1%-*}"
+# # Like, comment, share & Don't forget to subscribe [Qwiklab_Explorers_ts](https://youtube.com/@titashshil?si=RgamNu1dc9jVIbJN) 👍😄🤝
 
-export REGION2="${ZONE2%-*}"
+## Run the following commands in CloudShell and follow video:
 
-export REGION3="${ZONE3%-*}"
+```bash
+export REGION_1=
+```
+
+```
+export REGION_2=
+```
+
+```
+export REGION_3=
+```
+
+```bash
 
 gcloud compute networks create taw-custom-network --subnet-mode custom
 
-gcloud compute networks subnets create subnet-$REGION1 \
+gcloud compute networks subnets create subnet-$REGION_1 \
    --network taw-custom-network \
-   --region $REGION1 \
+   --region $REGION_1 \
    --range 10.0.0.0/16
 
-gcloud compute networks subnets create subnet-$REGION2 \
+gcloud compute networks subnets create subnet-$REGION_2 \
    --network taw-custom-network \
-   --region $REGION2 \
-   --range 10.1.0.0/16   
+   --region $REGION_2 \
+   --range 10.1.0.0/16
 
-gcloud compute networks subnets create subnet-$REGION3 \
+gcloud compute networks subnets create subnet-$REGION_3 \
    --network taw-custom-network \
-   --region $REGION3 \
+   --region $REGION_3 \
    --range 10.2.0.0/16
 
-
-gcloud compute networks subnets list \
-   --network taw-custom-network
 
 gcloud compute firewall-rules create nw101-allow-http \
 --allow tcp:80 --network taw-custom-network --source-ranges 0.0.0.0/0 \
@@ -37,25 +47,12 @@ gcloud compute firewall-rules create "nw101-allow-internal" --allow tcp:0-65535,
 gcloud compute firewall-rules create "nw101-allow-ssh" --allow tcp:22 --network "taw-custom-network" --target-tags "ssh"
 
 gcloud compute firewall-rules create "nw101-allow-rdp" --allow tcp:3389 --network "taw-custom-network"
+```
 
+# Congratulations ..!!🎉  You completed the lab shortly..😃💯
 
-gcloud compute instances create us-test-01 \
---subnet subnet-$REGION1 \
---zone $ZONE1 \
---machine-type e2-standard-2 \
---tags ssh,http,rules
+# *Well done..!* 👏
 
+# Thank you for visiting.... :) 🗯️
 
-gcloud compute instances create us-test-02 \
---subnet subnet-$REGION2 \
---zone $ZONE2 \
---machine-type e2-standard-2 \
---tags ssh,http,rules
-
-gcloud compute instances create us-test-03 \
---subnet subnet-$REGION3 \
---zone $ZONE3 \
---machine-type e2-standard-2 \
---tags ssh,http,rules
-
-
+# [Qwiklab_Explorers_ts](https://youtube.com/@titashshil?si=RgamNu1dc9jVIbJN)
